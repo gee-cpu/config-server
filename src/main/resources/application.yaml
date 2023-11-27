@@ -10,6 +10,7 @@ spring:
         git:
           uri: https://github.com/gee-cpu/config-server
           clone-on-start: true
+          token: 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
 
 eureka:
   instance:
@@ -19,3 +20,5 @@ eureka:
     register-with-eureka: true
     service-url:
       defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8761/eureka}
+
+
