@@ -10,7 +10,6 @@ spring:
         git:
           uri: https://github.com/gee-cpu/config-server
           clone-on-start: true
-          token: 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
 
 eureka:
   instance:
