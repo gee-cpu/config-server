@@ -85,25 +85,27 @@
 					</image>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>3.3.2</version>
+				<configuration>
+					<from>
+						<image>openjdk:17</image>
+					</from>
+					<to>
+						<image>${repourl}/${project.artifactId}:${project.version}</image>
+						<tags>
+							<tag>${project.version}</tag>
+						</tags>
+						<auth>
+							<username>${registry.username}</username>
+							<password>${registry.password}</password>
+						</auth>
+					</to>
+				</configuration>
+			</plugin>
 
-					<plugin>
-						<groupId>com.google.cloud.tools</groupId>
-						<artifactId>jib-maven-plugin</artifactId>
-						<version>3.3.2</version>
-						<configuration>
-							<from>
-								<image>openjdk:17</image>
-							</from>
-							<to>
-								<image>${${repourl}</image>
-								<tags>${project.version}</tags>
-								<auth>
-									<username>${registry.username}</username>
-									<password>${registry.password}</password>
-								</auth>
-							</to>
-						</configuration>
-					</plugin>
 		</plugins>
 	</build>
 </project>
