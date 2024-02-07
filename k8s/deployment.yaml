@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: config-server-app
-        image: geecpu/configserver:latest
+        image: geecpu/${project.artifactId}:latest
         imagePullPolicy: Always
         resources:
           limits:
