@@ -17,6 +17,25 @@
 		<java.version>17</java.version>
 		<spring-cloud.version>2022.0.4</spring-cloud.version>
 	</properties>
+	<repositories>
+		<repository>
+			<id>github-tomakehurst</id>
+			<name>GitHub tomakehurst Repository</name>
+			<url>https://maven.pkg.github.com/tomakehurst</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>google-cloud-tools</id>
+			<url>https://dl.google.com/repository/maven-tools</url>
+		</repository>
+
+	</repositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -66,7 +85,25 @@
 					</image>
 				</configuration>
 			</plugin>
+
+					<plugin>
+						<groupId>com.google.cloud.tools</groupId>
+						<artifactId>jib-maven-plugin</artifactId>
+						<version>3.3.2</version>
+						<configuration>
+							<from>
+								<image>openjdk:17</image>
+							</from>
+							<to>
+								<image>${${repourl}</image>
+								<tags>${project.version}</tags>
+								<auth>
+									<username>${registry.username}</username>
+									<password>${registry.password}</password>
+								</auth>
+							</to>
+						</configuration>
+					</plugin>
 		</plugins>
 	</build>
-
 </project>
