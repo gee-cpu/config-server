@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   name: config-server-app
 spec:
-  replicas: 2  # Ensure high availability
+  replicas: 2
   selector:
     matchLabels:
       app: config-server-app
@@ -15,14 +15,14 @@ spec:
     spec:
       containers:
       - name: config-server-app
-        image: geecpu/configserver:latest  # Specify image tag
-        imagePullPolicy: Always  # Ensure latest image is used
+        image: geecpu/configserver:latest
+        imagePullPolicy: Always
         resources:
           limits:
             memory: "128Mi"
             cpu: "500m"
           requests:
-            memory: "64Mi"  # Specify resource requests
+            memory: "64Mi"
             cpu: "250m"
         ports:
         - containerPort: 9296
