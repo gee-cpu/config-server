@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: config-server-app
-        image: geecpu/${project.artifactId}:latest
+        image: geecpu/@repourl@/${project.artifactId}:latest
         imagePullPolicy: Always
         resources:
           limits:

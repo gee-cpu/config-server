@@ -85,11 +85,11 @@
 					</image>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>com.google.cloud.tools</groupId>
-				<artifactId>jib-maven-plugin</artifactId>
-				<version>3.3.2</version>
-				<configuration>
+			 <plugin>
+            <groupId>com.google.cloud.tools</groupId>
+            <artifactId>jib-maven-plugin</artifactId>
+            <version>3.3.2</version>
+           <configuration>
 					<from>
 						<image>openjdk:17</image>
 					</from>
@@ -104,7 +104,36 @@
 						</auth>
 					</to>
 				</configuration>
-			</plugin>
+        </plugin>
+			<plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>3.2.0</version>
+            <executions>
+                <execution>
+                    <id>filter-repo-url</id>
+                    <goals>
+                        <goal>resources</goal>
+                    </goals>
+                    <phase>process-resources</phase>
+                </execution>
+            </executions>
+            <configuration>
+                <delimiters>
+                    <delimiter>${*}</delimiter>
+                </delimiters>
+                <useDefaultDelimiters>false</useDefaultDelimiters>
+                <resources>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                        <filtering>true</filtering>
+                        <includes>
+                            <include>k8s/deployment.yaml</include>
+                        </includes>
+                    </resource>
+                </resources>
+            </configuration>
+        </plugin>
 
 		</plugins>
 	</build>
