@@ -9,6 +9,8 @@ node {
             extensions: [],
             userRemoteConfigs: [[credentialsId: 'git',
             url: 'https://github.com/gee-cpu/config-server.git']]])
+                sh 'cat $M2_HOME/conf/settings.xml'
+
     }
 
     stage('Build and Push Image') {
