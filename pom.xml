@@ -94,7 +94,7 @@
 						<image>openjdk:17</image>
 					</from>
 					<to>
-						<image>${repourl}/${project.artifactId}:${project.version}</image>
+					<image>${repourl}/${project.artifactId}:${project.version}</image>
 						<tags>
 							<tag>${project.version}</tag>
 						</tags>
